@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Irrigation Data Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Smart Irrigation System</h1>
+<p>Soil Moisture Data Dashboard</p>
+</header>
+<main>
+<section class="toolbar">
+<button id="connect">Connect Arduino</button>
+<button id="demo">Start Demo Data</button>
+<button id="clear" class="gray">Clear Data</button>
+<span id="connection">Status: Not Connected</span>
+</section>
+<section class="cards">
+<div class="card"><h3>Soil Moisture</h3><strong id="moisture">--%</strong><p>Current reading</p></div>
+<div class="card"><h3>Motor Speed</h3><strong id="speed">--%</strong><p id="pwm">PWM: --</p></div>
+<div class="card"><h3>Motor Status</h3><strong id="status">--</strong><p>Automatic control</p></div>
+<div class="card"><h3>Data Points</h3><strong id="points">0</strong><p>Collected readings</p></div>
+</section>
+<section class="panel"><h2>Soil Moisture History</h2><canvas id="chart" width="1000" height="330"></canvas></section>
+<section class="columns">
+<div class="panel"><h2>Collected Data</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Soil Value</th><th>Moisture</th><th>Motor Speed</th><th>Status</th></tr></thead><tbody id="table"></tbody></table></div></div>
+<div class="panel"><h2>Dryness Prediction</h2><div id="prediction" class="prediction">Collect at least 2 readings.</div><p class="note">This uses recent data to estimate the next moisture level. A future version can use machine learning for a true AI prediction model.</p></div>
+</section>
+<section class="panel"><h2>Motor Control Logic</h2><div class="logic">
+<div><b>&lt; 30%</b><span>Motor 100%</span></div>
+<div><b>30–49%</b><span>Motor 75%</span></div>
+<div><b>50–69%</b><span>Motor 50%</span></div>
+<div><b>≥ 70%</b><span>Motor OFF</span></div>
+</div></section>
+</main>
+
+<button id="chatToggle" class="chat-toggle" aria-label="Open AI chatbot">💬</button>
+<section id="chatbot" class="chatbot">
+<div class="chat-header"><div><strong>Smart Irrigation AI</strong><small>Ask about your irrigation system</small></div><button id="chatClose" class="chat-close">×</button></div>
+<div id="chatMessages" class="chat-messages"><div class="message bot-message">Hello! 👋 I’m your Smart Irrigation Assistant. Ask me about soil moisture, motor speed, or automatic mode.</div></div>
+<div class="chat-input-row"><input id="chatInput" type="text" placeholder="Ask a question..." autocomplete="off"><button id="chatSend">Send</button></div>
+</section>
+
+<footer>Smart Irrigation System • Data Dashboard</footer>
+<script src="script.js"></script>
+</body>
+</html>

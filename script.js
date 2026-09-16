@@ -64,7 +64,7 @@ function startDemo(){
 function clearData(){readings=[];update()}
 
 /* n8n AI Chatbot */
-const N8N_WEBHOOK_URL="https://msmast3r.app.n8n.cloud/webhook/smart-irrigation-chat";
+const N8N_WEBHOOK_URL = "https://msmast3r.app.n8n.cloud/webhook/smart-irrigation-chat";
 
 async function sendMessageToN8N(question){
  try{
